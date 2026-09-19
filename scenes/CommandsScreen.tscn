@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cfnvfta6mvnug"]
+
+[ext_resource type="Script" uid="uid://bmcp3gs4nm175" path="res://script/commands_screen.gd" id="1_u5cco"]
+
+[node name="CommandsScreen" type="Control" unique_id=440312163]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u5cco")
+
+[node name="Panel" type="Panel" parent="." unique_id=1045691903]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1269860844]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Richtexlabel" type="Label" parent="Panel/VBoxContainer" unique_id=1198570352]
+layout_mode = 2
+
+[node name="LabelTitle" type="Label" parent="Panel/VBoxContainer" unique_id=325257568]
+layout_mode = 2
+
+[node name="BtnBack" type="Button" parent="Panel/VBoxContainer" unique_id=2084191341]
+layout_mode = 2
+text = "Voltar"

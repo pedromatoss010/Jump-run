@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ftvabextq6yy"]
+
+[ext_resource type="Script" uid="uid://k8jhmt3qvy5f" path="res://script/loading_screen.gd" id="1_126je"]
+[ext_resource type="Texture2D" uid="uid://byylemxlq5gsg" path="res://Assets/images/TelaCarregamento.png" id="2_x85qc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x85qc"]
+bg_color = Color(0.8434967, 0.5213351, 1.92523e-07, 1)
+
+[node name="LoadingScreen" type="Control" unique_id=1243297845]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_126je")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=225813387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x85qc")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1616901581]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 464.0
+offset_right = 825.0
+offset_bottom = 491.0
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.972549, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_x85qc")
+
+[node name="LoadingLabel" type="Label" parent="." unique_id=2111081774]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 502.0
+offset_right = 705.0
+offset_bottom = 537.0
+theme_override_font_sizes/font_size = 22
+text = "Carregando"

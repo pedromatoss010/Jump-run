@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://w00ajmmquk17"]
+
+[ext_resource type="Script" uid="uid://dqsvb2ldre4vn" path="res://script/porta.gd" id="1_8gms0"]
+[ext_resource type="Texture2D" uid="uid://cdxdosbxeo25d" path="res://Assets/Sprites/11-Door/Idle.png" id="1_rwxfp"]
+[ext_resource type="Texture2D" uid="uid://c486chxuqtlng" path="res://Assets/Sprites/11-Door/Closiong (46x56).png" id="2_8gms0"]
+[ext_resource type="PackedScene" uid="uid://bmp4yspjai3at" path="res://map/mapa_02.tscn" id="2_vqm4t"]
+[ext_resource type="Texture2D" uid="uid://dkbdp4hpxtrdy" path="res://Assets/Sprites/11-Door/Opening (46x56).png" id="3_vqm4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwxfp"]
+size = Vector2(46, 59)
+
+[sub_resource type="Animation" id="Animation_ede8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_rwxfp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_vc027"]
+resource_name = "closing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8gms0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.09812101, 0.2000899),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_fxeu8"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_rwxfp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_rp0bl"]
+resource_name = "opening"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_vqm4t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.101006925, 0.2000899, 0.29917288, 0.4001798),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvu8n"]
+_data = {
+&"RESET": SubResource("Animation_ede8e"),
+&"closing": SubResource("Animation_vc027"),
+&"idle": SubResource("Animation_fxeu8"),
+&"opening": SubResource("Animation_rp0bl")
+}
+
+[node name="porta" type="Area2D" unique_id=1363290500]
+script = ExtResource("1_8gms0")
+mapa_destino = ExtResource("2_vqm4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517455173]
+position = Vector2(45, 36)
+scale = Vector2(1, 1.0714285)
+texture = ExtResource("1_rwxfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061181684]
+position = Vector2(45, 36.5)
+shape = SubResource("RectangleShape2D_rwxfp")
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1001151292]
+libraries/ = SubResource("AnimationLibrary_qvu8n")

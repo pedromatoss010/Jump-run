@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://m8ncepowntsu"]
+
+[ext_resource type="Texture2D" uid="uid://b1c14va4a5lxe" path="res://Assets/Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="1_0a7ml"]
+[ext_resource type="Script" uid="uid://cdn43misc8b1e" path="res://script/diamond.gd" id="1_okr8r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0a7ml"]
+radius = 4.0
+height = 8.0
+
+[node name="Diamond" type="Area2D" unique_id=289323941]
+script = ExtResource("1_okr8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=618941351]
+texture = ExtResource("1_0a7ml")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014784608]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_0a7ml")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

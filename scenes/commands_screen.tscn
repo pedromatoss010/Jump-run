@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dfjmm73xjpoke"]
+
+[ext_resource type="Script" uid="uid://bmcp3gs4nm175" path="res://script/commands_screen.gd" id="1_56cob"]
+[ext_resource type="Texture2D" uid="uid://iddmpyr7ul73" path="res://images/TelaComandos.png" id="1_wbxkf"]
+
+[node name="CommandsScreen" type="Control" unique_id=1674382547]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_56cob")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1291836085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 1237.0
+offset_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wbxkf")
+expand_mode = 1
+
+[node name="BtnBack" type="Button" parent="." unique_id=1743320941]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 529.0
+offset_right = 730.0
+offset_bottom = 576.0
+flat = true

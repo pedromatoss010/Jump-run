@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://qesy8evidat2"]
+
+[ext_resource type="Script" path="res://script/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bjxk1p6djtcym" path="res://Assets/images/telaInicial (2).png" id="2_bqqt6"]
+
+[node name="MainMenu" type="Control" unique_id=1093158299]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="background" type="TextureRect" parent="." unique_id=901278041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bqqt6")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1724548258]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2119573726]
+layout_mode = 2
+
+[node name="BtnHistory" type="Button" parent="." unique_id=1176158965]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 596.0
+offset_right = 1020.0
+offset_bottom = 643.0
+size_flags_vertical = 8
+size_flags_stretch_ratio = 8.31
+flat = true
+
+[node name="BtnCommands" type="Button" parent="." unique_id=1864667414]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 594.0
+offset_right = 461.0
+offset_bottom = 645.0
+flat = true
+
+[node name="BtnStart" type="Button" parent="." unique_id=1910971782]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 573.0
+offset_right = 755.0
+offset_bottom = 636.0
+flat = true
