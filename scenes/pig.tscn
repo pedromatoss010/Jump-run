@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dy8un1r7vn42b" path="res://script/pig.gd" id="1_j740r"]
 [ext_resource type="Texture2D" uid="uid://ckspvma2ogr1u" path="res://Assets/Sprites/03-Pig/Run (34x28).png" id="2_j740r"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7e1yb"]
-load_path = "res://.godot/imported/Idle (34x28).png-8ee6216cc622d543cc497975235a3233.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct3s0"]
 size = Vector2(14, 13.5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7e1yb"]
+load_path = "res://.godot/imported/Idle (34x28).png-8ee6216cc622d543cc497975235a3233.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j740r"]
 radius = 4.0
@@ -19,7 +19,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Visual/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Visual/Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -43,7 +43,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("Visual/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -55,7 +55,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox_Inimigo/CollisionShape2D:shape")
+tracks/3/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -67,7 +67,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox_Inimigo/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -79,7 +79,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hitbox_Inimigo/CollisionShape2D:position")
+tracks/5/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -92,11 +92,10 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_e1p3k"]
 resource_name = "attack"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Visual/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,7 +107,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Visual/Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -120,7 +119,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("Visual/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -132,7 +131,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox_Inimigo/CollisionShape2D:shape")
+tracks/3/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -144,7 +143,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Hitbox_Inimigo/CollisionShape2D:disabled")
+tracks/4/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -156,7 +155,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Hitbox_Inimigo/CollisionShape2D:position")
+tracks/5/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -172,7 +171,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Visual/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -184,7 +183,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Visual/Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -196,7 +195,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("Visual/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -208,7 +207,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox_Inimigo/CollisionShape2D:disabled")
+tracks/3/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -225,7 +224,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Visual/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -237,7 +236,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Visual/Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -249,7 +248,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("Visual/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -261,7 +260,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitbox_Inimigo/CollisionShape2D:disabled")
+tracks/3/path = NodePath("Visual/Hitbox_Inimigo/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -285,10 +284,6 @@ radius = 58.00862
 [node name="pig" type="CharacterBody2D" unique_id=1833131863]
 script = ExtResource("1_j740r")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1872435142]
-texture = SubResource("CompressedTexture2D_7e1yb")
-hframes = 11
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1639934612]
 position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_ct3s0")
@@ -296,21 +291,28 @@ shape = SubResource("RectangleShape2D_ct3s0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=424924251]
 libraries/ = SubResource("AnimationLibrary_ley84")
 
-[node name="SensorChao" type="RayCast2D" parent="." unique_id=108633466]
+[node name="Visual" type="Node2D" parent="." unique_id=2062657803]
 
-[node name="AreaDeVisao" type="Area2D" parent="." unique_id=730942994]
+[node name="AreaDeVisao" type="Area2D" parent="Visual" unique_id=730942994]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeVisao" unique_id=623680167]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/AreaDeVisao" unique_id=623680167]
 visible = false
 position = Vector2(4, 5)
 shape = SubResource("CircleShape2D_j740r")
 
-[node name="Hitbox_Inimigo" type="Area2D" parent="." unique_id=1094530513]
+[node name="Hitbox_Inimigo" type="Area2D" parent="Visual" unique_id=1094530513]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Inimigo" unique_id=686704567]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visual/Hitbox_Inimigo" unique_id=686704567]
 position = Vector2(-12, -2)
 shape = SubResource("CapsuleShape2D_j740r")
 
-[connection signal="body_entered" from="AreaDeVisao" to="." method="_on_area_de_visao_body_entered"]
-[connection signal="body_exited" from="AreaDeVisao" to="." method="_on_area_de_visao_body_exited"]
-[connection signal="body_entered" from="Hitbox_Inimigo" to="." method="_on_hit_box_inimigo_body_entered"]
+[node name="SensorChao" type="RayCast2D" parent="Visual" unique_id=108633466]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual" unique_id=1872435142]
+position = Vector2(-1, -1)
+texture = SubResource("CompressedTexture2D_7e1yb")
+hframes = 11
+
+[connection signal="body_entered" from="Visual/AreaDeVisao" to="." method="_on_area_de_visao_body_entered"]
+[connection signal="body_exited" from="Visual/AreaDeVisao" to="." method="_on_area_de_visao_body_exited"]
+[connection signal="body_entered" from="Visual/Hitbox_Inimigo" to="." method="_on_hit_box_inimigo_body_entered"]
