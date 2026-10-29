@@ -9,18 +9,28 @@ var gravidade = ProjectSettings.get_setting("physics/2d/default_gravity")
 var estado = "PATRULHANDO"
 var player = null
 var is_attacking = false
+var player_no_alcance = false
+var ataque_id = 0
 
-@onready var visual = $Visual # NOVO NÓ AQUI
+@onready var visual = $Visual
 @onready var sensor_chao = $Visual/SensorChao
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Visual/Sprite2D
+@onready var hitbox = $Visual/Hitbox_Inimigo
 
 func _ready() -> void:
 	atualizar_orientacao(direcao)
+	if not hitbox.body_entered.is_connected(_on_hit_box_inimigo_body_entered):
+		hitbox.body_entered.connect(_on_hit_box_inimigo_body_entered)
+	if not hitbox.body_exited.is_connected(_on_hit_box_inimigo_body_exited):
+		hitbox.body_exited.connect(_on_hit_box_inimigo_body_exited)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravidade * delta
+
+	if player != null and not is_instance_valid(player):
+		resetar_para_patrulha()
 
 	if estado == "PATRULHANDO":
 		patrulhar()
@@ -32,15 +42,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-# --- CONTROLE DE DIREÇÃO SIMPLIFICADO ---
 func atualizar_orientacao(nova_direcao: int):
 	if nova_direcao == 0:
 		return
 	direcao = nova_direcao
-	# Inverte a Escala X do nó Visual. Tudo dentro dele gira junto.
 	visual.scale.x = abs(visual.scale.x) * -direcao
 
-# --- COMPORTAMENTOS ---
 func patrulhar():
 	if is_on_wall() or not sensor_chao.is_colliding():
 		atualizar_orientacao(direcao * -1)
@@ -53,49 +60,68 @@ func atacar():
 		velocity.x = 0
 		return
 
-	var distancia = global_position.distance_to(player.global_position)
 	var direcao_para_player = sign(player.global_position.x - global_position.x)
-
 	if direcao_para_player != 0 and direcao_para_player != direcao:
 		atualizar_orientacao(direcao_para_player)
 
-	if distancia > 35.0: 
+	if player_no_alcance:
+		velocity.x = 0
+		iniciar_ataque()
+	else:
 		velocity.x = direcao * vel_ataque
 		anim.play("run")
-	else:
-		velocity.x = 0
-		is_attacking = true
-		anim.play("attack")
-		
-		# Espera um tempinho rápido (0.2s) para a mordida/espadada chegar no Player
-		# (Você pode aumentar ou diminuir esse 0.2 se quiser sincronizar melhor com o visual)
-		await get_tree().create_timer(0.2).timeout
-		
-		# Procura quem está dentro da caixa exatamente no frame do golpe
-		var corpos_atingidos = $Visual/Hitbox_Inimigo.get_overlapping_bodies()
-		for body in corpos_atingidos:
-			if body.name == "Player" and body.has_method("tomar_dano"):
-				body.tomar_dano(1)
-		
-		# Espera a animação inteira terminar para destravar o inimigo
-		await anim.animation_finished
-		is_attacking = false
+
+func iniciar_ataque():
+	is_attacking = true
+	ataque_id += 1
+	var meu_ataque = ataque_id
+	anim.play("attack")
+
+	await get_tree().create_timer(0.2).timeout
+	if meu_ataque != ataque_id:
+		return
+
+	if is_instance_valid(player) and player in hitbox.get_overlapping_bodies():
+		if player.has_method("tomar_dano"):
+			player.tomar_dano(1)
+
+	await anim.animation_finished
+	if meu_ataque != ataque_id:
+		return
+	is_attacking = false
+
+func resetar_para_patrulha():
+	player = null
+	player_no_alcance = false
+	estado = "PATRULHANDO"
+	is_attacking = false
+	ataque_id += 1
+
+# --- HITBOX (alcance do golpe) ---
+func _eh_o_player(body: Node) -> bool:
+	if body == self:
+		return false
+	return body.name == "Player" or body.is_in_group("player")
 
 func _on_hit_box_inimigo_body_entered(body: Node2D) -> void:
-	pass
+	if _eh_o_player(body):
+		player_no_alcance = true
+
+func _on_hit_box_inimigo_body_exited(body: Node2D) -> void:
+	if _eh_o_player(body):
+		player_no_alcance = false
 
 func tomar_dano(dano_recebido: int):
 	vida -= dano_recebido
 	if vida <= 0:
 		queue_free()
 
+# --- ÁREA DE VISÃO ---
 func _on_area_de_visao_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if _eh_o_player(body):
 		player = body
 		estado = "ATACANDO"
 
 func _on_area_de_visao_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
-		player = null
-		estado = "PATRULHANDO"
-		is_attacking = false
+	if _eh_o_player(body):
+		resetar_para_patrulha()
