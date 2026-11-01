@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://wln3yp4hhg36" path="res://scenes/player.tscn" id="2_vfydt"]
 [ext_resource type="PackedScene" uid="uid://bbajci7bcwvpj" path="res://scenes/pig.tscn" id="4_niywo"]
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="5_inxtj"]
+[ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="6_35ocl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_niywo"]
 texture = ExtResource("1_4lyte")
@@ -497,6 +498,10 @@ tile_set = SubResource("TileSet_35ocl")
 format = 2
 layer_0/tile_data = PackedInt32Array(262183, 262144, 6, 327719, 262144, 7, 393255, 262144, 8, 262184, 327680, 6, 327720, 327680, 7, 393256, 327680, 8, 262185, 393216, 6, 327721, 393216, 7, 393257, 393216, 8, 262189, 524288, 6, 327725, 524288, 7, 393261, 524288, 8, 262190, 589824, 6, 327726, 589824, 7, 393262, 589824, 8, 262191, 655360, 6, 327727, 655360, 7, 393263, 655360, 8, 458794, 327680, 4, 458795, 393216, 4, 458796, 458752, 4, 458797, 524288, 4, 458798, 589824, 4, 458799, 655360, 4, 458800, 720896, 4, 458791, 262144, 4, 458792, 327680, 4, 458793, 327680, 4, 131123, 131072, 2, 131124, 196608, 2, 131125, 393216, 2, 131126, 458752, 2, 131127, 524288, 2, 131128, 589824, 2, 131129, 131072, 2, 131130, 196608, 2, 196659, 131072, 3, 262195, 131072, 4, 327731, 131072, 5, 393267, 131072, 6, 458803, 131072, 7, 524339, 131072, 8, 589875, 131072, 9, 196660, 196608, 3, 262196, 196608, 4, 327732, 196608, 5, 393268, 196608, 6, 458804, 196608, 7, 524340, 196608, 8, 589876, 196608, 9, 196665, 131072, 3, 262201, 131072, 4, 327737, 131072, 5, 393273, 131072, 6, 458809, 131072, 7, 524345, 131072, 8, 589881, 131072, 9, 196666, 196608, 3, 262202, 196608, 4, 327738, 196608, 5, 393274, 196608, 6, 458810, 196608, 7, 524346, 196608, 8, 589882, 196608, 9)
 
+[node name="porta" parent="." unique_id=1363290500 instance=ExtResource("6_35ocl")]
+position = Vector2(24, 94)
+porta_de_inicio = true
+
 [node name="pig" parent="." unique_id=1833131863 instance=ExtResource("4_niywo")]
 position = Vector2(319, 108)
 
@@ -513,6 +518,6 @@ position = Vector2(1341, 263)
 position = Vector2(1174, 490)
 
 [node name="Player" parent="." unique_id=116991528 instance=ExtResource("2_vfydt")]
-position = Vector2(75, 113)
+position = Vector2(121, 121)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("5_inxtj")]

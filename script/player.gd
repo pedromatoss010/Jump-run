@@ -25,6 +25,7 @@ func _ready() -> void:
 	add_to_group("player")
 	hitbox_ataque.disabled = true
 	area_ataque.collision_mask = 3
+	Global.resetar_status()
 	vida = Global.vida_atual
 
 func _physics_process(delta: float) -> void:
@@ -159,12 +160,33 @@ func morrer() -> void:
 
 	await animation_player.animation_finished
 	await get_tree().create_timer(1.0).timeout
+	Global.resetar_status()
 	get_tree().reload_current_scene()
 
 func entrar_na_porta() -> void:
-	controle_travado = true 
+	controle_travado = true
+	velocity = Vector2.ZERO
+	play_animation("doorIn")
+	
+	# Faz um fade out suave junto com a animação de entrar
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property(self, "modulate:a", 0.0, 0.6)
+
+func sair_da_porta() -> void:
+	controle_travado = true
+	modulate.a = 0.0 # Começa invisível dentro da porta
+	velocity = Vector2.ZERO
+	
+	# Faz o player aparecer e tocar a animação de sair da porta
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.3)
+	
+	play_animation("doorOut")
+	await animation_player.animation_finished
+	
+	# Libera o controle do jogador para jogar
+	controle_travado = false
+	play_animation("idle")
 
 func _on_hitbox_ataque_body_entered(body: Node2D) -> void:
 	if body != self and is_attacking and body.has_method("tomar_dano"):

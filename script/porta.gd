@@ -1,48 +1,85 @@
 extends Area2D
 
-# Isso vai criar um campo no Inspetor para você arrastar a fase destino!
+# Marque como TRUE no Inspetor se esta porta for o ponto inicial onde o jogador nasce!
+@export var porta_de_inicio: bool = false
+
+# Arraste para cá a cena do mapa para onde esta porta deve levar (caso seja porta de saída)
 @export var mapa_destino: PackedScene
 
-@onready var animacao_da_porta = $AnimationPlayer # Puxa o tocador da porta
-var jogador_na_porta = null # Guarda quem encostou na porta
-var porta_em_uso = false # Impede de apertar o botão duas vezes
+@onready var animacao_da_porta: AnimationPlayer = $AnimationPlayer
+var jogador_na_porta: Node2D = null
+var porta_em_uso: bool = false
 
-func _process(delta: float) -> void:
-	# Se o jogador está na porta, a porta não está sendo usada, e ele apertou "Cima" (ui_up)
-	if jogador_na_porta != null and porta_em_uso == false:
+func _ready() -> void:
+	if porta_de_inicio:
+		# Se for a porta onde o jogador começa a fase:
+		animacao_da_porta.play("idle")
+		# Aguarda a cena carregar e inicia a saída do player
+		call_deferred("executar_saida_do_player")
+
+func _process(_delta: float) -> void:
+	# Porta de saída: aperta para cima para entrar
+	if not porta_de_inicio and jogador_na_porta != null and not porta_em_uso:
 		if Input.is_action_just_pressed("ui_up"):
 			iniciar_cena_da_porta()
 
-func iniciar_cena_da_porta():
-	porta_em_uso = true 
+# --- SEQUÊNCIA DE SAÍDA (INÍCIO DA FASE) ---
+func executar_saida_do_player() -> void:
+	porta_em_uso = true
+	var player = get_tree().get_first_node_in_group("player")
 	
-	# 1. Toca a porta abrindo
+	if player != null:
+		player.global_position = $Sprite2D.global_position
+		player.controle_travado = true
+		player.modulate.a = 0.0
+		
+		# 1. Abre a porta
+		animacao_da_porta.play("opening")
+		await animacao_da_porta.animation_finished
+		
+		# 2. Faz o jogador sair da porta
+		player.sair_da_porta()
+		await get_tree().create_timer(0.4).timeout
+		
+		# 3. Fecha a porta
+		animacao_da_porta.play("closing")
+		await animacao_da_porta.animation_finished
+		animacao_da_porta.play("idle")
+		
+	porta_em_uso = false
+
+# --- SEQUÊNCIA DE ENTRADA (FIM DA FASE) ---
+func iniciar_cena_da_porta() -> void:
+	if mapa_destino == null:
+		print("Aviso: Nenhum mapa_destino configurado nesta porta!")
+		return
+
+	porta_em_uso = true
+	
+	# 1. Porta abre
 	animacao_da_porta.play("opening")
-	await animacao_da_porta.animation_finished 
+	await animacao_da_porta.animation_finished
 	
-	# 2. Manda o jogador travar e sumir (O Tween de 0.5 segundos começa aqui)
-	jogador_na_porta.entrar_na_porta()
+	# 2. Centraliza o jogador na porta e toca animação de entrar
+	if jogador_na_porta != null and jogador_na_porta.has_method("entrar_na_porta"):
+		jogador_na_porta.global_position = $Sprite2D.global_position
+		jogador_na_porta.entrar_na_porta()
 	
-	# CORREÇÃO: Pede para a porta esperar exatamente 0.5 segundos
-	await get_tree().create_timer(0.5).timeout 
+	await get_tree().create_timer(0.6).timeout
 	
-	# 3. Toca a porta fechando
+	# 3. Porta fecha
 	animacao_da_porta.play("closing")
-	await animacao_da_porta.animation_finished 
+	await animacao_da_porta.animation_finished
+	animacao_da_porta.play("idle")
 	
-# 4. Avisa o Global qual é a fase que a tela de loading deve carregar
+	# 4. Transição para a próxima fase
 	Global.proxima_fase = mapa_destino.resource_path
-	
-	# 5. Manda para a tela de loading
 	get_tree().change_scene_to_file("res://scenes/LoadingScreen.tscn")
-	
+
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player": # Certifique-se de que o nome do seu jogador na cena é "Player"
+	if body.is_in_group("player") or body.name == "Player":
 		jogador_na_porta = body
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.is_in_group("player") or body.name == "Player":
 		jogador_na_porta = null
-
-func _on_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
