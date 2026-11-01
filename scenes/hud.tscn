@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dq65lhli6k1kw"]
+
+[ext_resource type="Script" uid="uid://dx6lw2w73bdav" path="res://script/hud.gd" id="1_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://d1w85glj6awal" path="res://Assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://b1c14va4a5lxe" path="res://Assets/Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="3_uo2fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
+atlas = ExtResource("2_6fi6k")
+region = Rect2(0, 0, 18, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fi6k"]
+atlas = ExtResource("3_uo2fv")
+region = Rect2(0, 0, 18, 14)
+
+[node name="HUD" type="CanvasLayer" unique_id=1294959]
+script = ExtResource("1_5ysmq")
+
+[node name="ControlUI" type="Control" parent="." unique_id=989726900]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoracoesContainer" type="HBoxContainer" parent="ControlUI" unique_id=1797082262]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlUI/CoracoesContainer" unique_id=834486030]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ysmq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="ControlUI/CoracoesContainer" unique_id=1530866673]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ysmq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="ControlUI/CoracoesContainer" unique_id=1104115026]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ysmq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="ControlUI/CoracoesContainer" unique_id=1980634508]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ysmq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="ControlUI/CoracoesContainer" unique_id=524258579]
+layout_mode = 2
+texture = SubResource("AtlasTexture_5ysmq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DiamantesContainer" type="HBoxContainer" parent="ControlUI" unique_id=1872388303]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 46.0
+offset_bottom = 77.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlUI/DiamantesContainer" unique_id=1834846892]
+custom_minimum_size = Vector2(36, 28)
+layout_mode = 2
+texture = SubResource("AtlasTexture_6fi6k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="DiamantesLabel" type="Label" parent="ControlUI/DiamantesContainer" unique_id=1054570878]
+layout_mode = 2
+text = "x 0"

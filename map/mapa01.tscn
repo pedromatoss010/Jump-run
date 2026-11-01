@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dexnkt4y862yl" path="res://Assets/Sprites/14-TileSets/Decorations (32x32).png" id="3_3smxh"]
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="3_27djh"]
 [ext_resource type="PackedScene" uid="uid://m8ncepowntsu" path="res://scenes/diamond.tscn" id="3_om653"]
-[ext_resource type="Script" uid="uid://buol3rv8hen0b" path="res://script/score.gd" id="6_om653"]
+[ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="6_om653"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i36a"]
 texture = ExtResource("1_nmutu")
@@ -551,12 +551,7 @@ position = Vector2(1547, 290)
 [node name="Player" parent="." unique_id=116991528 instance=ExtResource("2_1i36a")]
 position = Vector2(99, 90)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=872814735]
-
-[node name="score" type="Label" parent="CanvasLayer" unique_id=861883763]
-offset_right = 40.0
-offset_bottom = 32.0
-script = ExtResource("6_om653")
+[node name="HUD" parent="." unique_id=1294959 instance=ExtResource("6_om653")]
 
 [connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="porta" to="porta" method="_on_body_shape_entered"]
