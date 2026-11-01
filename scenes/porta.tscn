@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dqsvb2ldre4vn" path="res://script/porta.gd" id="1_8gms0"]
 [ext_resource type="Texture2D" uid="uid://cdxdosbxeo25d" path="res://Assets/Sprites/11-Door/Idle.png" id="1_rwxfp"]
 [ext_resource type="Texture2D" uid="uid://c486chxuqtlng" path="res://Assets/Sprites/11-Door/Closiong (46x56).png" id="2_8gms0"]
-[ext_resource type="PackedScene" uid="uid://bmp4yspjai3at" path="res://map/mapa_02.tscn" id="2_vqm4t"]
 [ext_resource type="Texture2D" uid="uid://dkbdp4hpxtrdy" path="res://Assets/Sprites/11-Door/Opening (46x56).png" id="3_vqm4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwxfp"]
@@ -153,7 +152,6 @@ _data = {
 
 [node name="porta" type="Area2D" unique_id=1363290500]
 script = ExtResource("1_8gms0")
-mapa_destino = ExtResource("2_vqm4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1517455173]
 position = Vector2(45, 36)

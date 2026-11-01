@@ -10,14 +10,15 @@ func _ready() -> void:
 	btn_story.pressed.connect(_on_story_pressed)
    
 func _on_start_pressed() -> void:
-	# 1. Primeiro, avisa o Global que a fase 1 é o destino
-	# IMPORTANTE: Coloque aqui o caminho exato da sua primeira fase!
+	# 1. Zera o total de diamantes para a nova partida
+	Global.total_diamantes = 0
+	Global.resetar_status()
+	
+	# 2. Avisa o Global que a fase 1 é o destino
 	Global.proxima_fase = "res://map/mapa01.tscn" 
 	
-	# 2. Agora sim, chama a tela de carregamento
-	get_tree().change_scene_to_file("res://scenes/LoadingScreen.tscn"
-	)
-
+	# 3. Chama a tela de carregamento
+	get_tree().change_scene_to_file("res://scenes/LoadingScreen.tscn")
 func _on_commands_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/commands_screen.tscn")
 

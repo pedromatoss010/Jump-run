@@ -589,12 +589,8 @@ libraries/ = SubResource("AnimationLibrary_wnwbv")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1332045636]
 position = Vector2(2, 4)
 zoom = Vector2(1.8, 1.8)
-limit_left = 13
-limit_top = 0
-limit_right = 2560
-limit_bottom = 735
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
+position_smoothing_speed = 1.0
 script = ExtResource("12_3v2ag")
 
 [node name="Visual" type="Node2D" parent="." unique_id=858492172]
