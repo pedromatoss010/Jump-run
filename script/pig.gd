@@ -75,7 +75,7 @@ func patrulhar() -> void:
 
 func atacar() -> void:
 	var dist_x = player.global_position.x - global_position.x
-	var dist_total = global_position.distance_to(player.global_position)
+	var _dist_total = global_position.distance_to(player.global_position)
 	var direcao_para_player = sign(dist_x)
 
 	if not is_attacking and direcao_para_player != 0 and direcao_para_player != direcao:

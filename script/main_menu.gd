@@ -19,7 +19,9 @@ func _on_start_pressed() -> void:
 	
 	# 3. Chama a tela de carregamento
 	get_tree().change_scene_to_file("res://scenes/LoadingScreen.tscn")
+	
 func _on_commands_pressed() -> void:
+	Global.cena_origem = "res://scenes/mainMenu.tscn"
 	get_tree().change_scene_to_file("res://scenes/commands_screen.tscn")
 
 func _on_story_pressed() -> void:

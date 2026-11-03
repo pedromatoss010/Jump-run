@@ -8,6 +8,8 @@ var total_diamantes: int = 0
 var max_vida: int = 5
 var vida_atual: int = 5
 
+var cena_origem: String = "res://scenes/mainMenu.tscn"
+
 func resetar_status() -> void:
 	vida_atual = max_vida
 

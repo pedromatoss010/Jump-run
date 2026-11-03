@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bitcsbl6s3y0n"]
+
+[ext_resource type="Script" uid="uid://4pga62vocy4y" path="res://script/pause_menu.gd" id="1_myx47"]
+[ext_resource type="Texture2D" uid="uid://b25qq7qsfq57l" path="res://Assets/images/PauseMenu.png" id="1_n87rw"]
+
+[node name="PauseMenu" type="Control" unique_id=196674291]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myx47")
+
+[node name="background" type="TextureRect" parent="." unique_id=1977681648]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n87rw")
+expand_mode = 1
+
+[node name="Continuar" type="Button" parent="." unique_id=1980150178]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 300.0
+offset_right = 792.0
+offset_bottom = 344.0
+flat = true
+
+[node name="Config" type="Button" parent="." unique_id=703938280]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 371.0
+offset_right = 792.0
+offset_bottom = 415.0
+flat = true
+
+[node name="SairPMenu" type="Button" parent="." unique_id=710651644]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 437.0
+offset_right = 793.0
+offset_bottom = 476.0
+flat = true
+
+[node name="SairJogo" type="Button" parent="." unique_id=1149067171]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 498.0
+offset_right = 790.0
+offset_bottom = 539.0
+flat = true

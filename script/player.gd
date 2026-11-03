@@ -29,7 +29,6 @@ func _ready() -> void:
 	vida = Global.vida_atual
 
 func _physics_process(delta: float) -> void:
-	# Aplica gravidade se não estiver no chão
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
@@ -155,7 +154,7 @@ func tomar_dano(dano_recebido: int) -> void:
 func morrer() -> void:
 	is_dead = true
 	is_attacking = false
-	hitbox_ataque.disabled = true
+	hitbox_ataque.set_deferred("disabled", true)
 	play_animation("dead")
 
 	await animation_player.animation_finished

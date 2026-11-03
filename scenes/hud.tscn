@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dx6lw2w73bdav" path="res://script/hud.gd" id="1_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://d1w85glj6awal" path="res://Assets/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="2_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://b1c14va4a5lxe" path="res://Assets/Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="3_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://bitcsbl6s3y0n" path="res://scenes/pause_menu.tscn" id="4_6fi6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ysmq"]
 atlas = ExtResource("2_6fi6k")
@@ -73,3 +74,5 @@ stretch_mode = 5
 [node name="DiamantesLabel" type="Label" parent="ControlUI/DiamantesContainer" unique_id=1054570878]
 layout_mode = 2
 text = "x 0"
+
+[node name="PauseMenu" parent="." unique_id=196674291 instance=ExtResource("4_6fi6k")]

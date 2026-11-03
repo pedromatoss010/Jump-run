@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dexnkt4y862yl" path="res://Assets/Sprites/14-TileSets/Decorations (32x32).png" id="3_3smxh"]
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="3_27djh"]
 [ext_resource type="PackedScene" uid="uid://m8ncepowntsu" path="res://scenes/diamond.tscn" id="3_om653"]
+[ext_resource type="PackedScene" uid="uid://bmp4yspjai3at" path="res://map/mapa_02.tscn" id="5_tix2y"]
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="6_om653"]
+[ext_resource type="Script" uid="uid://bsrj4no504dpw" path="res://script/killzone.gd" id="8_sbi4r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i36a"]
 texture = ExtResource("1_nmutu")
@@ -486,6 +488,9 @@ texture = ExtResource("3_3smxh")
 [sub_resource type="TileSet" id="TileSet_vyyu4"]
 sources/0 = SubResource("TileSetAtlasSource_cyjrn")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp28h"]
+size = Vector2(1648.5, 62.5)
+
 [node name="Mapa" type="Node2D" unique_id=550167604]
 position = Vector2(-3, -2)
 
@@ -547,11 +552,21 @@ position = Vector2(907, 106)
 
 [node name="porta" parent="." unique_id=1363290500 instance=ExtResource("3_27djh")]
 position = Vector2(1547, 290)
+mapa_destino = ExtResource("5_tix2y")
 
 [node name="Player" parent="." unique_id=116991528 instance=ExtResource("2_1i36a")]
 position = Vector2(99, 90)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("6_om653")]
 
+[node name="Killzone" type="Area2D" parent="." unique_id=1217217909]
+position = Vector2(187, 778)
+script = ExtResource("8_sbi4r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1191482716]
+position = Vector2(640.25, -327.25)
+shape = SubResource("RectangleShape2D_cp28h")
+
 [connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="porta" to="porta" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

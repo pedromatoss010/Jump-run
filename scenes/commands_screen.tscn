@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dfjmm73xjpoke"]
+[gd_scene format=3 uid="uid://bexcli4yvnk0n"]
 
 [ext_resource type="Script" uid="uid://bmcp3gs4nm175" path="res://script/commands_screen.gd" id="1_56cob"]
-[ext_resource type="Texture2D" uid="uid://iddmpyr7ul73" path="res://images/TelaComandos.png" id="1_wbxkf"]
+[ext_resource type="Texture2D" uid="uid://iddmpyr7ul73" path="res://Assets/images/TelaComandos.png" id="1_wbxkf"]
 
 [node name="CommandsScreen" type="Control" unique_id=1674382547]
 layout_mode = 3
@@ -23,6 +23,14 @@ grow_vertical = 2
 texture = ExtResource("1_wbxkf")
 expand_mode = 1
 
+[node name="ComandosContainer" type="VBoxContainer" parent="." unique_id=300968309]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 220.0
+offset_right = 820.0
+offset_bottom = 440.0
+theme_override_constants/separation = 14
+
 [node name="BtnBack" type="Button" parent="." unique_id=1743320941]
 layout_mode = 0
 offset_left = 542.0
@@ -30,3 +38,21 @@ offset_top = 529.0
 offset_right = 730.0
 offset_bottom = 576.0
 flat = true
+
+[node name="TextoComandos" type="RichTextLabel" parent="." unique_id=1843568525]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 179.0
+offset_right = 820.0
+offset_bottom = 436.0
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[color=#ffe082][b]A / D[/b][/color]  [color=#ffffff]— Mover[/color]
+
+[color=#ffe082][b]ESPAÇO[/b][/color]  [color=#ffffff]— Pular (2x Pulo Duplo)[/color]
+
+[color=#ffe082][b]E  ou  MOUSE[/b][/color]  [color=#ffffff]— Atacar com Espada[/color]
+
+[color=#ffe082][b]SETA P/ CIMA[/b][/color]  [color=#ffffff]— Entrar na Porta[/color]
+
+[color=#ffe082][b]ESC[/b][/color]  [color=#ffffff]— Pausar o Jogo[/color]"

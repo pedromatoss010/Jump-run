@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dexnkt4y862yl" path="res://Assets/Sprites/14-TileSets/Decorations (32x32).png" id="2_niywo"]
 [ext_resource type="PackedScene" uid="uid://wln3yp4hhg36" path="res://scenes/player.tscn" id="2_vfydt"]
 [ext_resource type="PackedScene" uid="uid://bbajci7bcwvpj" path="res://scenes/pig.tscn" id="4_niywo"]
+[ext_resource type="PackedScene" uid="uid://dgbckgctr2aa4" path="res://map/mapa_03.tscn" id="4_u5upa"]
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="5_inxtj"]
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="6_35ocl"]
 
@@ -501,6 +502,7 @@ layer_0/tile_data = PackedInt32Array(262183, 262144, 6, 327719, 262144, 7, 39325
 [node name="porta" parent="." unique_id=1363290500 instance=ExtResource("6_35ocl")]
 position = Vector2(24, 94)
 porta_de_inicio = true
+mapa_destino = ExtResource("4_u5upa")
 
 [node name="pig" parent="." unique_id=1833131863 instance=ExtResource("4_niywo")]
 position = Vector2(319, 108)
