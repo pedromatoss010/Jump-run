@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://4e8n6y8nhjyv"]
+
+[ext_resource type="Texture2D" uid="uid://bqkgj86ftvqo2" path="res://Assets/images/VitoryScreen.png" id="1_lfx6a"]
+[ext_resource type="Script" uid="uid://bw7l021qt1fnk" path="res://script/vitory_screen.gd" id="1_prxt1"]
+[ext_resource type="Texture2D" uid="uid://b1c14va4a5lxe" path="res://Assets/Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="3_qnr11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a35ak"]
+atlas = ExtResource("3_qnr11")
+region = Rect2(0, 0, 18, 14)
+
+[node name="VitoryScreen" type="Control" unique_id=1383006241]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_prxt1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1354113241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lfx6a")
+expand_mode = 1
+
+[node name="VBoxContent" type="VBoxContainer" parent="." unique_id=417624529]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -268.0
+offset_top = -121.0
+offset_right = 288.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContent" unique_id=1181852561]
+layout_mode = 2
+
+[node name="DiamantesScore" type="HBoxContainer" parent="VBoxContent" unique_id=225500084]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContent/DiamantesScore" unique_id=665378215]
+layout_mode = 2
+texture = SubResource("AtlasTexture_a35ak")
+stretch_mode = 5
+
+[node name="TotalDiamantesLabel" type="Label" parent="VBoxContent/DiamantesScore" unique_id=1529865526]
+layout_mode = 2
+text = "x 0 Diamantes Coletados"
+
+[node name="BtnPlayAgain" type="Button" parent="." unique_id=344454009]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 0
+offset_left = 701.0
+offset_top = 554.0
+offset_right = 915.0
+offset_bottom = 608.0
+flat = true
+
+[node name="BtnMainMenu" type="Button" parent="." unique_id=441917854]
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 0
+offset_left = 367.0
+offset_top = 554.0
+offset_right = 591.0
+offset_bottom = 609.0
+flat = true
