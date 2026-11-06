@@ -558,6 +558,7 @@ mapa_destino = ExtResource("5_tix2y")
 position = Vector2(99, 90)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("6_om653")]
+visible = true
 
 [node name="Killzone" type="Area2D" parent="." unique_id=1217217909]
 position = Vector2(187, 778)

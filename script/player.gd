@@ -153,6 +153,7 @@ func tomar_dano(dano_recebido: int) -> void:
 
 func morrer() -> void:
 	is_dead = true
+	max_pulos = 2
 	is_attacking = false
 	hitbox_ataque.set_deferred("disabled", true)
 	play_animation("dead")

@@ -78,6 +78,7 @@ func iniciar_cena_da_porta() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") or body.name == "Player":
+		print("Jogador na portada")
 		jogador_na_porta = body
 
 func _on_body_exited(body: Node2D) -> void:
