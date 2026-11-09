@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="5_inxtj"]
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="6_35ocl"]
 [ext_resource type="PackedScene" uid="uid://dmi72buk21ppv" path="res://scenes/armadilha.tscn" id="9_pkn5e"]
+[ext_resource type="Script" uid="uid://bsrj4no504dpw" path="res://script/killzone.gd" id="10_bve0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_niywo"]
 texture = ExtResource("1_4lyte")
@@ -489,6 +490,9 @@ texture = ExtResource("2_niywo")
 [sub_resource type="TileSet" id="TileSet_35ocl"]
 sources/0 = SubResource("TileSetAtlasSource_inxtj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hukb"]
+size = Vector2(416, 130)
+
 [node name="mapa02" type="Node2D" unique_id=717212288]
 
 [node name="Terrain" type="TileMap" parent="." unique_id=1639397052]
@@ -591,9 +595,17 @@ position = Vector2(1174, 490)
 position = Vector2(121, 121)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("5_inxtj")]
-visible = true
 
 [node name="Armadilha" parent="." unique_id=1555656648 instance=ExtResource("9_pkn5e")]
 position = Vector2(1246, 176)
 
+[node name="KilZone" type="Area2D" parent="." unique_id=318016513]
+position = Vector2(1397, 502)
+script = ExtResource("10_bve0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KilZone" unique_id=1229811719]
+position = Vector2(123, 57)
+shape = SubResource("RectangleShape2D_5hukb")
+
 [connection signal="body_entered" from="porta2" to="porta2" method="_on_body_entered"]
+[connection signal="body_entered" from="KilZone" to="KilZone" method="_on_body_entered"]
