@@ -491,7 +491,7 @@ texture = ExtResource("2_niywo")
 sources/0 = SubResource("TileSetAtlasSource_inxtj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hukb"]
-size = Vector2(416, 130)
+size = Vector2(419, 183)
 
 [node name="mapa02" type="Node2D" unique_id=717212288]
 
@@ -509,6 +509,63 @@ layer_0/tile_data = PackedInt32Array(262183, 262144, 6, 327719, 262144, 7, 39325
 
 [node name="Diamond" parent="Diamantes" unique_id=289323941 instance=ExtResource("3_nfh8j")]
 position = Vector2(1678, 267)
+
+[node name="Diamond21" parent="Diamantes" unique_id=802482572 instance=ExtResource("3_nfh8j")]
+position = Vector2(2065, 276)
+
+[node name="Diamond22" parent="Diamantes" unique_id=1532794066 instance=ExtResource("3_nfh8j")]
+position = Vector2(1991, 277)
+
+[node name="Diamond23" parent="Diamantes" unique_id=2070094463 instance=ExtResource("3_nfh8j")]
+position = Vector2(1916, 278)
+
+[node name="Diamond24" parent="Diamantes" unique_id=201602468 instance=ExtResource("3_nfh8j")]
+position = Vector2(2214, 116)
+
+[node name="Diamond25" parent="Diamantes" unique_id=1916264588 instance=ExtResource("3_nfh8j")]
+position = Vector2(2295, 115)
+
+[node name="Diamond26" parent="Diamantes" unique_id=2109777795 instance=ExtResource("3_nfh8j")]
+position = Vector2(2285, 372)
+
+[node name="Diamond27" parent="Diamantes" unique_id=708103587 instance=ExtResource("3_nfh8j")]
+position = Vector2(2364, 369)
+
+[node name="Diamond28" parent="Diamantes" unique_id=1920169288 instance=ExtResource("3_nfh8j")]
+position = Vector2(1923, 466)
+
+[node name="Diamond29" parent="Diamantes" unique_id=642824837 instance=ExtResource("3_nfh8j")]
+position = Vector2(2038, 463)
+
+[node name="Diamond38" parent="Diamantes" unique_id=1020482303 instance=ExtResource("3_nfh8j")]
+position = Vector2(1903, 628)
+
+[node name="Diamond39" parent="Diamantes" unique_id=104881888 instance=ExtResource("3_nfh8j")]
+position = Vector2(2041, 629)
+
+[node name="Diamond30" parent="Diamantes" unique_id=1938392508 instance=ExtResource("3_nfh8j")]
+position = Vector2(2603, 114)
+
+[node name="Diamond31" parent="Diamantes" unique_id=1964215931 instance=ExtResource("3_nfh8j")]
+position = Vector2(2701, 115)
+
+[node name="Diamond32" parent="Diamantes" unique_id=1594314899 instance=ExtResource("3_nfh8j")]
+position = Vector2(2592, 274)
+
+[node name="Diamond33" parent="Diamantes" unique_id=1046429164 instance=ExtResource("3_nfh8j")]
+position = Vector2(2694, 275)
+
+[node name="Diamond34" parent="Diamantes" unique_id=1185459433 instance=ExtResource("3_nfh8j")]
+position = Vector2(2580, 464)
+
+[node name="Diamond35" parent="Diamantes" unique_id=936353689 instance=ExtResource("3_nfh8j")]
+position = Vector2(2704, 464)
+
+[node name="Diamond36" parent="Diamantes" unique_id=1871420199 instance=ExtResource("3_nfh8j")]
+position = Vector2(2285, 565)
+
+[node name="Diamond37" parent="Diamantes" unique_id=860008795 instance=ExtResource("3_nfh8j")]
+position = Vector2(2368, 564.9999)
 
 [node name="Diamond2" parent="Diamantes" unique_id=1037431258 instance=ExtResource("3_nfh8j")]
 position = Vector2(1369, 259)
@@ -576,19 +633,51 @@ mapa_destino = ExtResource("4_u5upa")
 position = Vector2(3080, 318)
 mapa_destino = ExtResource("4_u5upa")
 
-[node name="pig" parent="." unique_id=1833131863 instance=ExtResource("4_niywo")]
+[node name="pigs" type="Node2D" parent="." unique_id=1566425957]
+
+[node name="pig" parent="pigs" unique_id=1833131863 instance=ExtResource("4_niywo")]
 position = Vector2(321, 147)
 
-[node name="pig2" parent="." unique_id=54033305 instance=ExtResource("4_niywo")]
+[node name="pig2" parent="pigs" unique_id=54033305 instance=ExtResource("4_niywo")]
 position = Vector2(103, 492)
 
-[node name="pig3" parent="." unique_id=198383349 instance=ExtResource("4_niywo")]
+[node name="pig3" parent="pigs" unique_id=198383349 instance=ExtResource("4_niywo")]
 position = Vector2(177, 303)
 
-[node name="pig4" parent="." unique_id=1648098362 instance=ExtResource("4_niywo")]
+[node name="pig4" parent="pigs" unique_id=1648098362 instance=ExtResource("4_niywo")]
 position = Vector2(1980, 242)
 
-[node name="pig5" parent="." unique_id=256947409 instance=ExtResource("4_niywo")]
+[node name="pig6" parent="pigs" unique_id=1926531206 instance=ExtResource("4_niywo")]
+position = Vector2(1983, 453)
+
+[node name="pig7" parent="pigs" unique_id=1748720686 instance=ExtResource("4_niywo")]
+position = Vector2(2324, 359)
+
+[node name="pig8" parent="pigs" unique_id=1764845935 instance=ExtResource("4_niywo")]
+position = Vector2(2626, 448)
+
+[node name="pig12" parent="pigs" unique_id=409238074 instance=ExtResource("4_niywo")]
+position = Vector2(2325, 553)
+
+[node name="pig13" parent="pigs" unique_id=1248806947 instance=ExtResource("4_niywo")]
+position = Vector2(1977, 621)
+
+[node name="pig14" parent="pigs" unique_id=853587891 instance=ExtResource("4_niywo")]
+position = Vector2(2322, 680)
+
+[node name="pig15" parent="pigs" unique_id=1800718337 instance=ExtResource("4_niywo")]
+position = Vector2(2885, 679)
+
+[node name="pig9" parent="pigs" unique_id=94478862 instance=ExtResource("4_niywo")]
+position = Vector2(2262, 97)
+
+[node name="pig10" parent="pigs" unique_id=1610149476 instance=ExtResource("4_niywo")]
+position = Vector2(2645, 97)
+
+[node name="pig11" parent="pigs" unique_id=1403534322 instance=ExtResource("4_niywo")]
+position = Vector2(2655, 263)
+
+[node name="pig5" parent="pigs" unique_id=256947409 instance=ExtResource("4_niywo")]
 position = Vector2(1174, 490)
 
 [node name="Player" parent="." unique_id=116991528 instance=ExtResource("2_vfydt")]
@@ -604,7 +693,7 @@ position = Vector2(1397, 502)
 script = ExtResource("10_bve0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KilZone" unique_id=1229811719]
-position = Vector2(123, 57)
+position = Vector2(126.5, 48.5)
 shape = SubResource("RectangleShape2D_5hukb")
 
 [connection signal="body_entered" from="porta2" to="porta2" method="_on_body_entered"]
