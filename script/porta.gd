@@ -7,21 +7,36 @@ extends Area2D
 @export var mapa_destino: PackedScene
 
 @onready var animacao_da_porta: AnimationPlayer = $AnimationPlayer
+@onready var aviso_label: Label = $AvisoLabel
+
 var jogador_na_porta: Node2D = null
 var porta_em_uso: bool = false
 
 func _ready() -> void:
+	# Garante que o aviso comece invisível
+	if aviso_label != null:
+		aviso_label.modulate.a = 0.0
+
 	if porta_de_inicio:
 		# Se for a porta onde o jogador começa a fase:
 		animacao_da_porta.play("idle")
-		# Aguarda a cena carregar e inicia a saída do player
 		call_deferred("executar_saida_do_player")
 
 func _process(_delta: float) -> void:
 	# Porta de saída: aperta para cima para entrar
 	if not porta_de_inicio and jogador_na_porta != null and not porta_em_uso:
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("inDoor"):
 			iniciar_cena_da_porta()
+
+# --- CONTROLE VISUAL DO BALÃOZINHO DE AVISO ---
+func exibir_aviso(mostrar: bool) -> void:
+	if aviso_label == null or porta_de_inicio:
+		return
+	var tween = create_tween()
+	if mostrar and not porta_em_uso:
+		tween.tween_property(aviso_label, "modulate:a", 1.0, 0.2)
+	else:
+		tween.tween_property(aviso_label, "modulate:a", 0.0, 0.2)
 
 # --- SEQUÊNCIA DE SAÍDA (INÍCIO DA FASE) ---
 func executar_saida_do_player() -> void:
@@ -55,6 +70,7 @@ func iniciar_cena_da_porta() -> void:
 		return
 
 	porta_em_uso = true
+	exibir_aviso(false) # Some com o aviso ao usar a porta
 	
 	# 1. Porta abre
 	animacao_da_porta.play("opening")
@@ -78,9 +94,10 @@ func iniciar_cena_da_porta() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") or body.name == "Player":
-		print("Jogador na portada")
 		jogador_na_porta = body
+		exibir_aviso(true)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player") or body.name == "Player":
 		jogador_na_porta = null
+		exibir_aviso(false)

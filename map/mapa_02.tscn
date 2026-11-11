@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="6_35ocl"]
 [ext_resource type="PackedScene" uid="uid://dmi72buk21ppv" path="res://scenes/armadilha.tscn" id="9_pkn5e"]
 [ext_resource type="Script" uid="uid://bsrj4no504dpw" path="res://script/killzone.gd" id="10_bve0h"]
+[ext_resource type="PackedScene" uid="uid://oapd88ydhi6" path="res://scenes/aviso_comando.tscn" id="11_5hukb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_niywo"]
 texture = ExtResource("1_4lyte")
@@ -696,5 +697,8 @@ script = ExtResource("10_bve0h")
 position = Vector2(126.5, 48.5)
 shape = SubResource("RectangleShape2D_5hukb")
 
-[connection signal="body_entered" from="porta2" to="porta2" method="_on_body_entered"]
+[node name="AvisoComando" parent="." unique_id=1066114975 instance=ExtResource("11_5hukb")]
+position = Vector2(68, 115)
+texto_aviso = "E ou Clique Esq. para atacar"
+
 [connection signal="body_entered" from="KilZone" to="KilZone" method="_on_body_entered"]

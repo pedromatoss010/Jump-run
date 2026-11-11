@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmp4yspjai3at" path="res://map/mapa_02.tscn" id="5_tix2y"]
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="6_om653"]
 [ext_resource type="Script" uid="uid://bsrj4no504dpw" path="res://script/killzone.gd" id="8_sbi4r"]
+[ext_resource type="PackedScene" uid="uid://oapd88ydhi6" path="res://scenes/aviso_comando.tscn" id="9_cp28h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i36a"]
 texture = ExtResource("1_nmutu")
@@ -551,14 +552,13 @@ position = Vector2(803, 186)
 position = Vector2(907, 106)
 
 [node name="porta" parent="." unique_id=1363290500 instance=ExtResource("3_27djh")]
-position = Vector2(1547, 290)
+position = Vector2(1523, 290)
 mapa_destino = ExtResource("5_tix2y")
 
 [node name="Player" parent="." unique_id=116991528 instance=ExtResource("2_1i36a")]
 position = Vector2(99, 90)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("6_om653")]
-visible = true
 
 [node name="Killzone" type="Area2D" parent="." unique_id=1217217909]
 position = Vector2(187, 778)
@@ -568,6 +568,14 @@ script = ExtResource("8_sbi4r")
 position = Vector2(640.25, -327.25)
 shape = SubResource("RectangleShape2D_cp28h")
 
-[connection signal="body_entered" from="porta" to="porta" method="_on_body_entered"]
+[node name="AvisoComando" parent="." unique_id=1066114975 instance=ExtResource("9_cp28h")]
+position = Vector2(43, 82)
+texto_aviso = "A / D para andar "
+
+[node name="AvisoComando2" parent="." unique_id=2006343117 instance=ExtResource("9_cp28h")]
+position = Vector2(155, 82)
+texto_aviso = "Espaco para pular 
+Espaco 2x: Pulo Duplo"
+
 [connection signal="body_shape_entered" from="porta" to="porta" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

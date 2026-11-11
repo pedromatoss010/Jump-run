@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://oapd88ydhi6"]
+
+[ext_resource type="Script" uid="uid://bml4ofq1ravlj" path="res://script/aviso_comando.gd" id="1_7mtxy"]
+[ext_resource type="FontFile" uid="uid://cx2h7hmb0pvhc" path="res://Assets/PressStart2P-Regular.ttf" id="2_2winx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_injdf"]
+size = Vector2(80, 11.5)
+
+[node name="AvisoComando" type="Area2D" unique_id=1066114975]
+script = ExtResource("1_7mtxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=567239566]
+position = Vector2(64, 40.25)
+shape = SubResource("RectangleShape2D_injdf")
+
+[node name="ComandoInicial" type="Label" parent="." unique_id=2098367162]
+offset_left = 110.0
+offset_top = -8.0
+offset_right = 237.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("2_2winx")
+theme_override_font_sizes/font_size = 8
+text = "comandos"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
