@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="6_om653"]
 [ext_resource type="Script" uid="uid://bsrj4no504dpw" path="res://script/killzone.gd" id="8_sbi4r"]
 [ext_resource type="PackedScene" uid="uid://oapd88ydhi6" path="res://scenes/aviso_comando.tscn" id="9_cp28h"]
+[ext_resource type="PackedScene" uid="uid://bj1sisldil5ko" path="res://scenes/box.tscn" id="10_v7bgt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i36a"]
 texture = ExtResource("1_nmutu")
@@ -576,6 +577,9 @@ texto_aviso = "A / D para andar "
 position = Vector2(155, 82)
 texto_aviso = "Espaco para pular 
 Espaco 2x: Pulo Duplo"
+
+[node name="box" parent="." unique_id=460626508 instance=ExtResource("10_v7bgt")]
+position = Vector2(187, 122)
 
 [connection signal="body_shape_entered" from="porta" to="porta" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

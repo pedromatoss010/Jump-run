@@ -3,14 +3,14 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_velocity: float = -380.0
 
-var max_pulos: int = 2 
+var max_pulos: int = 2
 var pulos_dados: int = 0
 var vida: int = 5
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visual: Node2D = $Visual
-@onready var sprite: Node2D = $Visual/Sprite2D 
+@onready var sprite: Node2D = $Visual/Sprite2D
 @onready var colisao: CollisionShape2D = $CollisionShape2D
 @onready var area_ataque: Area2D = $Visual/Hitbox_Ataque
 @onready var hitbox_ataque: CollisionShape2D = $Visual/Hitbox_Ataque/CollisionShape2D
@@ -117,7 +117,11 @@ func causar_dano_nos_alvos() -> void:
 	for body in area_ataque.get_overlapping_bodies():
 		if body != self and body.has_method("tomar_dano"):
 			body.tomar_dano(1)
-
+			
+func _on_hitbox_ataque_body_entered(body: Node2D) -> void:
+	if body != self and is_attacking and body.has_method("tomar_dano"):
+		body.tomar_dano(1)
+			
 func tomar_dano(dano_recebido: int) -> void:
 	if is_dead or invulneravel or controle_travado:
 		return
@@ -187,7 +191,3 @@ func sair_da_porta() -> void:
 	# Libera o controle do jogador para jogar
 	controle_travado = false
 	play_animation("idle")
-
-func _on_hitbox_ataque_body_entered(body: Node2D) -> void:
-	if body != self and is_attacking and body.has_method("tomar_dano"):
-		body.tomar_dano(1)
