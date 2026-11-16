@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://be1d4bx13mgao"]
+
+[ext_resource type="Script" path="res://script/history_screen.gd" id="1_o0vjx"]
+[ext_resource type="Texture2D" uid="uid://bwkmq4pjpijbh" path="res://Assets/images/TelaHistory (2).png" id="2_o0vjx"]
+
+[node name="HistoryScreen" type="Control" unique_id=1991647436]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o0vjx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1126122045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_o0vjx")
+expand_mode = 1
+
+[node name="BtnBack" type="Button" parent="." unique_id=1194762440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 578.0
+offset_top = 512.0
+offset_right = -558.0
+offset_bottom = -191.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
