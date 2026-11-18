@@ -3,6 +3,12 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_velocity: float = -380.0
 
+@export_group("Efeitos Sonoros")
+@export var som_pulo = AudioStream
+@export var som_atacar = AudioStream
+@export var som_Morrer = AudioStream
+@export var som_correr = AudioStream
+
 var max_pulos: int = 2
 var pulos_dados: int = 0
 var vida: int = 5
@@ -61,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if pulos_dados < max_pulos:
 			velocity.y = jump_velocity
+			AudioManager.tocar_sfx(som_pulo, -9.0)
 			pulos_dados += 1
 
 	# Movimentação horizontal
@@ -103,6 +110,7 @@ func attack() -> void:
 
 	is_attacking = true
 	play_animation("attack")
+	AudioManager.tocar_sfx(som_atacar, -18.0)
 	hitbox_ataque.disabled = false
 
 	# Aplica dano imediatamente em quem já estiver na área

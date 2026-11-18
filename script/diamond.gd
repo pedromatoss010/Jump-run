@@ -3,6 +3,9 @@ extends Area2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
+@export_group('Efeitos Sonoros')
+@export var pickup_coin = AudioStream
+
 var coletado: bool = false
 
 func _ready() -> void:
@@ -16,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 		coletado = true
 		collision.set_deferred("disabled", true)
 		Global.adicionar_diamante()
+		AudioManager.tocar_sfx(pickup_coin, -20.0)
 		
 		# Toca a animação de coleta (brilho/hit)
 		if anim.has_animation("hit"):

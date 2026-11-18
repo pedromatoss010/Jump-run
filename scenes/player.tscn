@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cdd0dag05gl7w" path="res://script/player.gd" id="1_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://jhxo7dvtcef0" path="res://Assets/Sprites/01-King Human/Idle (78x58).png" id="1_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b7wekoqwg8ac2" path="res://Assets/Sprites/01-King Human/Attack (78x58).png" id="2_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://btywxkmqq0bff" path="res://Assets/sounds/player_sounds/jump.wav" id="2_jej6c"]
 [ext_resource type="Texture2D" uid="uid://biv0ug3f6ktfl" path="res://Assets/Sprites/01-King Human/Dead (78x58).png" id="3_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://nkm4txh55foq" path="res://Assets/sounds/player_sounds/Hit.wav" id="3_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dh8flso0wo7y7" path="res://Assets/Sprites/01-King Human/Door In (78x58).png" id="4_jej6c"]
 [ext_resource type="Texture2D" uid="uid://k8cg0gh5aj7h" path="res://Assets/Sprites/01-King Human/Door Out (78x58).png" id="5_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://cuobyjjrs5uu3" path="res://Assets/Sprites/01-King Human/Fall (78x58).png" id="6_oprun"]
@@ -577,6 +579,8 @@ _data = {
 [node name="Player" type="CharacterBody2D" unique_id=116991528]
 safe_margin = 1.0
 script = ExtResource("1_d2wvv")
+som_pulo = ExtResource("2_jej6c")
+som_atacar = ExtResource("3_f1ej7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=600384138]
 position = Vector2(-1, 16)

@@ -6,6 +6,9 @@ extends Area2D
 # Arraste para cá a cena do mapa para onde esta porta deve levar (caso seja porta de saída)
 @export var mapa_destino: PackedScene
 
+@export_group("Efeitos Sonoros")
+@export var door_in = AudioStream
+
 @onready var animacao_da_porta: AnimationPlayer = $AnimationPlayer
 @onready var aviso_label: Label = $AvisoLabel
 
@@ -74,6 +77,7 @@ func iniciar_cena_da_porta() -> void:
 	
 	# 1. Porta abre
 	animacao_da_porta.play("opening")
+	AudioManager.tocar_sfx(door_in, -10.0)
 	await animacao_da_porta.animation_finished
 	
 	# 2. Centraliza o jogador na porta e toca animação de entrar
