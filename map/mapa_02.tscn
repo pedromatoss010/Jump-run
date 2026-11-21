@@ -685,6 +685,7 @@ position = Vector2(1174, 490)
 position = Vector2(121, 121)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("5_inxtj")]
+visible = true
 
 [node name="Armadilha" parent="." unique_id=1555656648 instance=ExtResource("9_pkn5e")]
 position = Vector2(1246, 176)

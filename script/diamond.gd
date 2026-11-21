@@ -19,7 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 		coletado = true
 		collision.set_deferred("disabled", true)
 		Global.adicionar_diamante()
-		AudioManager.tocar_sfx(pickup_coin, -20.0)
+		AudioManager.tocar_sfx(pickup_coin, -23.0)
 		
 		# Toca a animação de coleta (brilho/hit)
 		if anim.has_animation("hit"):
