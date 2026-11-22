@@ -16,7 +16,6 @@ func _ready() -> void:
 	btn_continuar.pressed.connect(_on_continuar_pressed)
 	btn_config.pressed.connect(_on_config_pressed)
 	btn_sair_menu.pressed.connect(_on_sair_menu_pressed)
-	btn_sair_jogo.pressed.connect(_on_sair_jogo_pressed)
 
 func _input(event: InputEvent) -> void:
 	# Detecta a tecla ESC diretamente (sem precisar configurar Input Map)
@@ -41,6 +40,3 @@ func _on_sair_menu_pressed() -> void:
 	get_tree().paused = false
 	Global.resetar_status()
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
-
-func _on_sair_jogo_pressed() -> void:
-	get_tree().quit()

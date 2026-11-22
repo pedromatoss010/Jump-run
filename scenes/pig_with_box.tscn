@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://uwvlryt2bcy7"]
 
 [ext_resource type="Texture2D" uid="uid://xdf5jf2g4m7y" path="res://Assets/Sprites/04-Pig Throwing a Box/Idle (26x30).png" id="1_uxajq"]
+[ext_resource type="Script" uid="uid://dtwdutlhds5te" path="res://script/pig_with_box.gd" id="1_wtdmp"]
 [ext_resource type="Texture2D" uid="uid://doaauldmcd6t8" path="res://Assets/Sprites/04-Pig Throwing a Box/Picking Box (26x30).png" id="2_wtdmp"]
 [ext_resource type="Texture2D" uid="uid://83s5u3gljys5" path="res://Assets/Sprites/04-Pig Throwing a Box/Run (26x30).png" id="3_3eu5g"]
 [ext_resource type="Texture2D" uid="uid://cey2usvo7txh1" path="res://Assets/Sprites/04-Pig Throwing a Box/Throwing Box (26x30).png" id="4_yjx6p"]
@@ -215,7 +216,11 @@ _data = {
 &"thowingBox": SubResource("Animation_3n3lv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtdmp"]
+size = Vector2(17, 26)
+
 [node name="PigWithBox" type="CharacterBody2D" unique_id=234327731]
+script = ExtResource("1_wtdmp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=932158745]
 texture = ExtResource("1_uxajq")
@@ -225,3 +230,5 @@ hframes = 9
 libraries/ = SubResource("AnimationLibrary_i7256")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=15546675]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_wtdmp")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c6a783e5lkcgj"]
+
+[ext_resource type="Script" uid="uid://cty78ov2drmy1" path="res://script/box_projectile.gd" id="1_ag34i"]
+[ext_resource type="Texture2D" uid="uid://12odm13cxd1m" path="res://Assets/Sprites/08-Box/Idle.png" id="2_11i2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e47mu"]
+size = Vector2(19, 16)
+
+[node name="boxProjectile" type="Area2D" unique_id=588610965]
+script = ExtResource("1_ag34i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=118457683]
+texture = ExtResource("2_11i2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075555368]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_e47mu")

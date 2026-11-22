@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bj1sisldil5ko" path="res://scenes/box.tscn" id="4_ml4w7"]
 [ext_resource type="PackedScene" uid="uid://m8ncepowntsu" path="res://scenes/diamond.tscn" id="5_8va7s"]
 [ext_resource type="PackedScene" uid="uid://w00ajmmquk17" path="res://scenes/porta.tscn" id="6_url4w"]
+[ext_resource type="PackedScene" uid="uid://cqntosief3clt" path="res://scenes/pig_hide_box.tscn" id="8_hcsxg"]
+[ext_resource type="PackedScene" uid="uid://dq65lhli6k1kw" path="res://scenes/hud.tscn" id="8_m2cw3"]
+[ext_resource type="PackedScene" uid="uid://30xrxyec23le" path="res://scenes/cannon.tscn" id="9_hcsxg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1vjo"]
 texture = ExtResource("1_qhiwi")
@@ -775,7 +778,13 @@ position = Vector2(2642, 440)
 [node name="box5" parent="Boxes" unique_id=814577607 instance=ExtResource("4_ml4w7")]
 position = Vector2(2621, 440)
 
-[node name="box6" parent="Boxes" unique_id=460626508 instance=ExtResource("4_ml4w7")]
+[node name="box10" parent="Boxes" unique_id=460626508 instance=ExtResource("4_ml4w7")]
+position = Vector2(2621, 424)
+
+[node name="box11" parent="Boxes" unique_id=1485093132 instance=ExtResource("4_ml4w7")]
+position = Vector2(2642, 424)
+
+[node name="box6" parent="Boxes" unique_id=1767294158 instance=ExtResource("4_ml4w7")]
 position = Vector2(2600, 440)
 
 [node name="box7" parent="Boxes" unique_id=588648877 instance=ExtResource("4_ml4w7")]
@@ -789,3 +798,15 @@ position = Vector2(2177, 680)
 
 [node name="porta" parent="." unique_id=1363290500 instance=ExtResource("6_url4w")]
 position = Vector2(4124, 286)
+
+[node name="HUD" parent="." unique_id=1294959 instance=ExtResource("8_m2cw3")]
+visible = true
+
+[node name="pigHideBox" parent="." unique_id=1549962838 instance=ExtResource("8_hcsxg")]
+position = Vector2(2485, 438)
+
+[node name="pigHideBox2" parent="." unique_id=1312362614 instance=ExtResource("8_hcsxg")]
+position = Vector2(2759, 438)
+
+[node name="cannon" parent="." unique_id=1461453291 instance=ExtResource("9_hcsxg")]
+position = Vector2(387, 629)
