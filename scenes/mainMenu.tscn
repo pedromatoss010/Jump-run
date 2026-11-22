@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://qesy8evidat2"]
 
-[ext_resource type="Script" path="res://script/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://bjxk1p6djtcym" path="res://Assets/images/telaInicial (2).png" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://cwk5514ow8ilb" path="res://script/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bokoenv7sv1uj" path="res://Assets/images/menuInicial.png" id="2_3d1i7"]
+[ext_resource type="FontFile" uid="uid://cx2h7hmb0pvhc" path="res://Assets/font/PressStart2P-Regular.ttf" id="3_48ign"]
 
 [node name="MainMenu" type="Control" unique_id=1093158299]
 layout_mode = 3
@@ -17,9 +18,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_bqqt6")
+texture = ExtResource("2_3d1i7")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1724548258]
@@ -37,26 +40,39 @@ layout_mode = 2
 
 [node name="BtnHistory" type="Button" parent="." unique_id=1176158965]
 layout_mode = 0
-offset_left = 823.0
-offset_top = 596.0
-offset_right = 1020.0
-offset_bottom = 643.0
+offset_left = 853.0
+offset_top = 571.0
+offset_right = 1077.0
+offset_bottom = 622.0
 size_flags_vertical = 8
 size_flags_stretch_ratio = 8.31
 flat = true
 
 [node name="BtnCommands" type="Button" parent="." unique_id=1864667414]
 layout_mode = 0
-offset_left = 262.0
-offset_top = 594.0
-offset_right = 461.0
-offset_bottom = 645.0
+offset_left = 216.0
+offset_top = 570.0
+offset_right = 436.0
+offset_bottom = 621.0
 flat = true
 
 [node name="BtnStart" type="Button" parent="." unique_id=1910971782]
 layout_mode = 0
-offset_left = 526.0
-offset_top = 573.0
-offset_right = 755.0
-offset_bottom = 636.0
+offset_left = 513.0
+offset_top = 553.0
+offset_right = 768.0
+offset_bottom = 618.0
 flat = true
+
+[node name="Label" type="Label" parent="." unique_id=1406912437]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 221.0
+offset_right = 783.0
+offset_bottom = 252.0
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_48ign")
+theme_override_font_sizes/font_size = 30
+text = "JUMP & RUN"
