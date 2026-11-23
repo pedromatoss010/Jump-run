@@ -800,7 +800,6 @@ position = Vector2(2177, 680)
 position = Vector2(4124, 286)
 
 [node name="HUD" parent="." unique_id=1294959 instance=ExtResource("8_m2cw3")]
-visible = true
 
 [node name="pigHideBox" parent="." unique_id=1549962838 instance=ExtResource("8_hcsxg")]
 position = Vector2(2485, 438)

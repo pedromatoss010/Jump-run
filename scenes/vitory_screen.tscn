@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4e8n6y8nhjyv"]
 
-[ext_resource type="Texture2D" uid="uid://bqkgj86ftvqo2" path="res://Assets/images/VitoryScreen.png" id="1_lfx6a"]
+[ext_resource type="Texture2D" uid="uid://bb6j3uqdl027o" path="res://Assets/images/VitoryScreen.png" id="1_lfx6a"]
 [ext_resource type="Script" uid="uid://bw7l021qt1fnk" path="res://script/vitory_screen.gd" id="1_prxt1"]
 [ext_resource type="Texture2D" uid="uid://b1c14va4a5lxe" path="res://Assets/Sprites/12-Live and Coins/Big Diamond Idle (18x14).png" id="3_qnr11"]
 
@@ -61,17 +61,17 @@ text = "x 0 Diamantes Coletados"
 [node name="BtnPlayAgain" type="Button" parent="." unique_id=344454009]
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 0
-offset_left = 701.0
-offset_top = 554.0
-offset_right = 915.0
-offset_bottom = 608.0
+offset_left = 689.0
+offset_top = 558.0
+offset_right = 949.0
+offset_bottom = 613.0
 flat = true
 
 [node name="BtnMainMenu" type="Button" parent="." unique_id=441917854]
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 0
-offset_left = 367.0
-offset_top = 554.0
-offset_right = 591.0
-offset_bottom = 609.0
+offset_left = 334.0
+offset_top = 558.0
+offset_right = 592.0
+offset_bottom = 614.0
 flat = true
