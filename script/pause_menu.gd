@@ -3,7 +3,6 @@ extends Control
 @onready var btn_continuar: Button = $Continuar
 @onready var btn_config: Button = $Config
 @onready var btn_sair_menu: Button = $SairPMenu
-@onready var btn_sair_jogo: Button = $SairJogo
 
 func _ready() -> void:
 	# Garante que ele responde mesmo quando o jogo estiver pausado
