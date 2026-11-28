@@ -28,7 +28,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Porta de saída: aperta para cima para entrar
 	if not porta_de_inicio and jogador_na_porta != null and not porta_em_uso:
-		if Input.is_action_just_pressed("inDoor"):
+		if Input.is_action_just_pressed("inDoor"):	
 			iniciar_cena_da_porta()
 
 # --- CONTROLE VISUAL DO BALÃOZINHO DE AVISO ---

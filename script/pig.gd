@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var vida: int = 3
 @export var cooldown_ataque: float = 0.5
 @export var distancia_ataque: float = 20.0
+@export var alcance_vertical_ataque: float = 40.0
+@export var limite_altura_visao: float = 60.0
 
 var direcao: int = -1
 var gravidade: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -75,14 +77,19 @@ func patrulhar() -> void:
 
 func atacar() -> void:
 	var dist_x = player.global_position.x - global_position.x
-	var _dist_total = global_position.distance_to(player.global_position)
+	var dist_y = abs(player.global_position.y - global_position.y)
 	var direcao_para_player = sign(dist_x)
+
+	# Se o jogador foi para outra plataforma (muito acima ou abaixo), perde o foco e volta a patrulhar
+	if dist_y > limite_altura_visao:
+		resetar_para_patrulha()
+		return
 
 	if not is_attacking and direcao_para_player != 0 and direcao_para_player != direcao:
 		atualizar_orientacao(direcao_para_player)
 
-	# Se estiver a curta distância do player
-	if abs(dist_x) <= distancia_ataque:
+	# Só ataca se estiver a curta distância horizontal E na mesma altura (mesmo piso)
+	if abs(dist_x) <= distancia_ataque and dist_y <= alcance_vertical_ataque:
 		velocity.x = 0
 		if pode_atacar and not is_attacking:
 			iniciar_ataque()
@@ -104,10 +111,11 @@ func iniciar_ataque() -> void:
 	if meu_ataque != ataque_id or estado == Estado.MORTO:
 		return
 
-	# Causa dano se o player estiver no alcance
+	# Causa dano APENAS se o player estiver no alcance horizontal E na mesma altura
 	if is_instance_valid(player):
 		var dist_x = abs(player.global_position.x - global_position.x)
-		if dist_x <= distancia_ataque + 4:
+		var dist_y = abs(player.global_position.y - global_position.y)
+		if dist_x <= distancia_ataque + 4 and dist_y <= alcance_vertical_ataque:
 			if player.has_method("tomar_dano"):
 				player.tomar_dano(1)
 
@@ -179,11 +187,11 @@ func morrer() -> void:
 
 func _on_area_de_visao_body_entered(body: Node2D) -> void:
 	if _eh_o_player(body) and estado != Estado.MORTO:
-		player = body
-		estado = Estado.ATACANDO
+		# Só foca no player se ele estiver em uma altura alcançável (mesmo andar/plataforma)
+		if abs(body.global_position.y - global_position.y) <= limite_altura_visao:
+			player = body
+			estado = Estado.ATACANDO
 
 func _on_area_de_visao_body_exited(body: Node2D) -> void:
 	if _eh_o_player(body) and estado != Estado.MORTO:
-		# Só reseta se o player realmente estiver distante (evita perder o player ao pular perto)
-		if is_instance_valid(player) and global_position.distance_to(player.global_position) > 75:
-			resetar_para_patrulha()
+		resetar_para_patrulha()

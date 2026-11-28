@@ -170,18 +170,19 @@ one_way_collision_margin = 0.0
 libraries/ = SubResource("AnimationLibrary_qvu8n")
 
 [node name="AvisoLabel" type="Label" parent="." unique_id=303760239]
-offset_left = 4.0
-offset_top = -20.0
-offset_right = 92.0
-offset_bottom = -2.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -25.0
+offset_top = -9.0
+offset_right = 95.0
+offset_bottom = 6.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.42365062, 0.42365065, 0.42365062, 0.6666667)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/outline_size = 1
 theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/font = ExtResource("5_vqm4t")
 theme_override_font_sizes/font_size = 8
-text = "Pressione W"
+text = "Pressione Enter"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

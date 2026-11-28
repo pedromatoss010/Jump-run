@@ -592,7 +592,7 @@ libraries/ = SubResource("AnimationLibrary_wnwbv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1332045636]
 position = Vector2(2, 4)
-zoom = Vector2(1.8, 1.8)
+zoom = Vector2(1.4, 1.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 script = ExtResource("12_3v2ag")

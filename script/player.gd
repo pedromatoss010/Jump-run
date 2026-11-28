@@ -28,7 +28,7 @@ var controle_travado: bool = false
 var invulneravel: bool = false
 
 func _ready() -> void:
-	add_to_group("player")
+	add_to_group("Player")
 	hitbox_ataque.disabled = true
 	area_ataque.collision_mask = 3
 	Global.resetar_status()
